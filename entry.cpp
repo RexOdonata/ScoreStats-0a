@@ -51,6 +51,7 @@ void entry::on_button_alter_clicked()
     {
         connect(this,&entry::deleteEntrySignal,ptrMain,&MainWindow::deleteEntryResponse);
         emit deleteEntrySignal(this);
+        ptrMain->enableAddPlayerButton();
     }
     else
     {

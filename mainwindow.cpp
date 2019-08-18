@@ -94,3 +94,8 @@ void MainWindow::on_button_calcScore_clicked()
     ptrDisplay->populate();
     ptrDisplay->showMaximized();
 }
+
+void MainWindow::enableAddPlayerButton()
+{
+    ui->button_addPlayer->setEnabled(true);
+}

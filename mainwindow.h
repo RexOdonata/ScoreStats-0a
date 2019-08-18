@@ -21,7 +21,7 @@ public:
 
     bool getRemoveState();
 
-
+    void enableAddPlayerButton();
 
 
 public slots:
