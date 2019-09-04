@@ -7,6 +7,8 @@
 #include "entry.h"
 #include "displayscores.h"
 
+#define LIMIT 8
+
 namespace Ui {
 class MainWindow;
 }
@@ -23,6 +25,7 @@ public:
 
     void enableAddPlayerButton();
 
+    void maxEntryCheck();
 
 public slots:
     void deleteEntryResponse(entry * entryPtr);
@@ -40,6 +43,7 @@ private:
     Ui::MainWindow *ui;
 
     QVector<entry *> entryList;
+
     bool removeState;
 
 };

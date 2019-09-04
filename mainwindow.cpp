@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 
 
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -18,6 +20,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_button_addPlayer_clicked()
 {
+
+
     entry * ptrEntry = new entry;
 
     ui->layout_entries->addWidget(ptrEntry);
@@ -27,6 +31,7 @@ void MainWindow::on_button_addPlayer_clicked()
 
     entryList.append(ptrEntry);
 
+    maxEntryCheck();
 
 }
 
@@ -78,6 +83,8 @@ void MainWindow::deleteEntryResponse(entry * entryPtr)
     //delete entry
     delete entryPtr;
 
+    maxEntryCheck();
+
 
 }
 
@@ -98,4 +105,19 @@ void MainWindow::on_button_calcScore_clicked()
 void MainWindow::enableAddPlayerButton()
 {
     ui->button_addPlayer->setEnabled(true);
+}
+
+void MainWindow::maxEntryCheck()
+{
+    if (entryList.length()==LIMIT)
+    {
+        ui->button_addPlayer->setEnabled(false);
+        ui->button_addPlayer->setText("Max Entries");
+    }
+    else if (entryList.length()<LIMIT)
+    {
+        ui->button_addPlayer->setEnabled(true);
+        ui->button_addPlayer->setText("Add Player");
+    }
+
 }
